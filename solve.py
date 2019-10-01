@@ -1,0 +1,160 @@
+from z3 import *
+
+
+
+result=[0x70,0x70,0xB2,0xAC,0x1,0xD2,0x5E,0x61,0x0A,0xA7,0x2A,0xA8,0x8 ,0x1C,0x86,0x1A,0xE8,0x45,0xC8,0x29,0xB2,0xF3,0xA1,0x1E,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0]
+
+
+result=[0x70,0x70,0xB2,0xAC,0x1,0xD2,0x5E,0x61,0x0A,0xA7,0x2A,0xA8,0x0,0x0,0x0,0x0,0x8 ,0x1C,0x86,0x1A,0xE8,0x45,0xC8,0x29,0xB2,0xF3,0xA1,0x1E,0x0,0x0,0x0,0x0]
+
+A=[0x00,0x10,0x13,0x04,0xbf,0xbf,0xb9,0xb9,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x00,0x10,0x13,0x04,0xbf,0xbf,0xb9,0xb9,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0]
+
+index=[2, 1, 0, 6, 5, 4, 10, 9, 8, 14, 13, 12, 255, 255, 255, 255, 2, 1, 0, 6, 5, 4, 10, 9, 8, 14, 13, 12, 255, 255, 255, 255]
+
+ c=[178, 112, 112, 94, 210, 1, 42, 167, 10, 0, 0, 0, 0, 0, 0, 0, 178, 112, 112, 94, 210, 1, 42, 167, 10, 0, 0, 0, 0, 0, 0, 0]
+
+v_160=[0x1000, 0x0001 ,0x1000 ,0x0001 ,0x1000 ,0x0001 ,0x1000 ,0x0001,0x1000,0x0001, 0x1000, 0x0001, 0x1000, 0x0001, 0x1000, 0x0001]
+
+dword_c= [0x5e7070b2, 0xa72a01d2 ,0x0000000a,0x00000000,0x5e7070b2,0xa72a01d2,0x0000000a,0x00000000]
+
+X1 = [ BitVec('x%s' % i,16) for i in range(16) ]
+
+
+s=Solver()
+
+
+s.add( (X1[0] * v_160[0]) +(X1[1] * v_160[1] ) ==0x5e7070b2)
+s.add( (X1[2] * v_160[2]) +(X1[3] * v_160[3] ) ==0xa72a01d2)
+s.add( (X1[4] * v_160[4]) +(X1[5] * v_160[5] ) ==0x0000000a)
+s.add( (X1[6] * v_160[6]) +(X1[7] * v_160[7] ) ==0x00000000)
+s.add( (X1[8] * v_160[8]) +(X1[9] * v_160[9] ) ==0x5e7070b2)
+s.add( (X1[10] * v_160[10]) +(X1[11] * v_160[11] ) ==0xa72a01d2)
+s.add( (X1[12] * v_160[12]) +(X1[13] * v_160[13] ) ==0x0000000a)
+s.add( (X1[14] * v_160[14]) +(X1[15] * v_160[15] ) ==0x00000000)
+
+
+
+print solver.check()
+
+A0_0= BitVecVal(0x00,8)
+A0_1= BitVecVal(0x10,8)
+A0_2= BitVecVal(0x13,8)
+A0_3= BitVecVal(0x04,8)
+A0_4= BitVecVal(0xbf,8)
+A0_5= BitVecVal(0xbf,8)
+A0_6= BitVecVal(0xb9,8)
+A0_7= BitVecVal(0xb9,8)
+A0_8= BitVecVal(0x0,8)
+A0_9= BitVecVal(0x0,8)
+A0_10= BitVecVal(0x0,8)
+A0_11= BitVecVal(0x0,8)
+A0_12= BitVecVal(0x0,8)
+A0_13= BitVecVal(0x0,8)
+A0_14= BitVecVal(0x0,8)
+A0_15= BitVecVal(0x0,8)
+A0_16= BitVecVal(0x00,8)
+A0_17= BitVecVal(0x10,8)
+A0_18= BitVecVal(0x13,8)
+A0_19= BitVecVal(0x04,8)
+A0_20= BitVecVal(0xbf,8)
+A0_21= BitVecVal(0xbf,8)
+A0_22= BitVecVal(0xb9,8)
+A0_23= BitVecVal(0xb9,8)
+A0_24= BitVecVal(0x0,8)
+A0_25= BitVecVal(0x0,8)
+A0_26= BitVecVal(0x0,8)
+A0_27= BitVecVal(0x0,8)
+A0_28= BitVecVal(0x0,8)
+A0_29= BitVecVal(0x0,8)
+A0_30= BitVecVal(0x0,8)
+A0_31= BitVecVal(0x0,8)
+
+
+B_0= BitVecVal(0x40,8)
+B_1= BitVecVal(0x01,8)
+B_2= BitVecVal(0x40,8)
+B_3= BitVecVal(0x01,8)
+B_4= BitVecVal(0x40,8)
+B_5= BitVecVal(0x01,8)
+B_6= BitVecVal(0x40,8)
+B_7= BitVecVal(0x01,8)
+B_8= BitVecVal(0x40,8)
+B_9= BitVecVal(0x01,8)
+B_10= BitVecVal(0x40,8)
+B_11= BitVecVal(0x01,8)
+B_12= BitVecVal(0x40,8)
+B_13= BitVecVal(0x01,8)
+B_14= BitVecVal(0x40,8)
+B_15= BitVecVal(0x01,8)
+B_16= BitVecVal(0x40,8)
+B_17= BitVecVal(0x01,8)
+B_18= BitVecVal(0x40,8)
+B_19= BitVecVal(0x01,8)
+B_20= BitVecVal(0x40,8)
+B_21= BitVecVal(0x01,8)
+B_22= BitVecVal(0x40,8)
+B_23= BitVecVal(0x01,8)
+B_24= BitVecVal(0x40,8)
+B_25= BitVecVal(0x01,8)
+B_26= BitVecVal(0x40,8)
+B_27= BitVecVal(0x01,8)
+B_28= BitVecVal(0x40,8)
+B_29= BitVecVal(0x01,8)
+B_30= BitVecVal(0x40,8)
+B_31= BitVecVal(0x01,8)
+
+
+
+
+
+
+
+X1 = [ BitVec('x%s' % i,8) for i in range(32) ]
+X2 = [ BitVec('x%s' % i,8) for i in range(32) ]
+X3 = [ BitVec('x%s' % i,8) for i in range(32) ]
+X4 = [ BitVec('x%s' % i,8) for i in range(32) ]
+X5 = [ BitVec('x%s' % i,8) for i in range(32) ]
+X6 = [ BitVec('x%s' % i,8) for i in range(32) ]
+Y=X1
+
+
+
+temp=BitVecVal(0x80,8)
+temp2=BitVecVal(0xFF,8)
+temp3=BitVecVal(0x0,8)
+
+for i in xrange(32):
+	#X[i] =X[i]/16 #1
+	X2[i]=If((X1[i] & 0x2F)==0x2F,temp2,temp3)
+        X3[i]=X2[i]+X1[i]  #2 &3
+
+for i in xrange(32):
+	X4[i]=If((X3[i] & 0x80)==1 ,0, 'A0_%d' % (int(X3[i].sexpr()) & 15) ) #4
+
+for i in xrange(32):
+	X5[i]=X4[i]+X1[i] #5
+
+
+for i in range(30):
+	X6[i]=('40_%i'['%i'] * X4['%i'] + '40_%i'['%i'] * X4['%i'])
+
+
+s=Solver()
+s.add(X5[0]==0x70)
+print solver.check()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
